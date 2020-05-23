@@ -57,6 +57,10 @@ chrome.extension.onRequest.addListener((request, sender, sendResponse) => {
                         iex_modal += "<div id='iex-snippets'>";
                             iex_modal += "<label id='iex-snippets-label'>Snippets:</label>";
                             iex_modal += "<button class='iex-snippet' value='Hello, Snippet!!'>Hello, Snippet!!</button>";
+                            iex_modal += "<button class='iex-snippet' value='ああああ'>Hello, Snippet!!</button>";
+                            iex_modal += "<button class='iex-snippet' value='いいいい'>Hello, Snippet!!</button>";
+                            iex_modal += "<button class='iex-snippet' value='うううう'>Hello, Snippet!!</button>";
+                            iex_modal += "<button class='iex-snippet' value='ええええ'>Hello, Snippet!!</button>";
                             iex_modal += "<button id='iex-add-snippet'>＋</button>";
                         iex_modal += "</div>";
                     iex_modal += "</div>";

@@ -21,10 +21,12 @@
 
 #iex-snippets {
     display: flex;
+    padding-left: 5px;
 }
 
 #iex-snippets-label {
-    
+    text-align: left;
+    width: 100%;
 }
 
 #iex-modal {
@@ -43,6 +45,7 @@
 }
 
 .iex-snippet {
+    font-size: 10px;
     margin: 5px;
     padding: 5px;
     color: white;
@@ -51,6 +54,7 @@
 }
 
 #iex-add-snippet {
+    font-size: 10px;
     margin: 5px;
     padding: 5px;
     color: white;
@@ -61,7 +65,7 @@
 #iex-textarea {
     box-sizing: border-box;
     width: 100%;
-    overflow: scroll;
+    font-size: 10px;
 }
 
 #iex-command-label {
