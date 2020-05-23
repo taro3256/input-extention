@@ -6,6 +6,8 @@ let variableTextArea = (element) => {
     let lines = (element.val() + '\n').match(/\n/g).length+1;
     if (lines < 5) {
         element.height(lineHeight * 5);
+    } else if (lines > 30) {
+        element.height(lineHeight * 30);
     } else {
         element.height(lineHeight * lines);
     }
@@ -43,25 +45,31 @@ chrome.extension.onRequest.addListener((request, sender, sendResponse) => {
         
         let iex_modal = "";
         iex_modal += "<div id='iex-content'>";
-        iex_modal += "<modal id='iex-modal'>";
-        iex_modal += "<div id='iex-title'>Input EX</div>";
-        iex_modal += "<label id='iex-snippets-label'>Snippets:</label>";
-        iex_modal += "<div id='iex-snippets'>";
-        iex_modal += "<button class='iex-snippet' value='Hello, Snippet!!'>Hello, Snippet!!</button>";
-        iex_modal += "<button id='iex-add-snippet'>＋</button>";
+            iex_modal += "<modal id='iex-modal'>";
+                iex_modal += "<div id='iex-title'>Input EX</div>";
+                    iex_modal += "<div id='iex-body'>";
+                        iex_modal += "<div id='iex-text'>";
+                            iex_modal += "<textarea id='iex-textarea'>" + iex_textarea_val + "</textarea>";
+                            if (is_iex_target) {
+                                iex_modal += "<div id='iex-command-label'>Shift+Enterで更新</div>";
+                            }
+                        iex_modal += "</div>";
+                        iex_modal += "<div id='iex-snippets'>";
+                            iex_modal += "<label id='iex-snippets-label'>Snippets:</label>";
+                            iex_modal += "<button class='iex-snippet' value='Hello, Snippet!!'>Hello, Snippet!!</button>";
+                            iex_modal += "<button id='iex-add-snippet'>＋</button>";
+                        iex_modal += "</div>";
+                    iex_modal += "</div>";
+                iex_modal += "</div>";
+            iex_modal += "</modal>";
         iex_modal += "</div>";
-        iex_modal += "<label id='iex-text-label'>Text:</label>";
-        iex_modal += "<textarea id='iex-textarea'>" + iex_textarea_val + "</textarea>";
-        iex_modal += "</modal>";
-        if (is_iex_target) {
-            iex_modal += "<div id='iex-command-label'>Shift+Enterで更新</div>";
-        }
-        iex_modal += "</div>";
-        iex_modal += "<div id='iex-overlay'></div>"
+        iex_modal += "<div id='iex-overlay'></div>";
         
         console.log(iex_modal);
         $("body").append(iex_modal);
         
+        // $("#iex-content").css('max-height','1000px');
+
         // スニペット追加
         $(".iex-snippet").on("click", function(e) {
             iex_textarea.val(iex_textarea.val() + $(this).val());
@@ -75,11 +83,11 @@ chrome.extension.onRequest.addListener((request, sender, sendResponse) => {
         iex_textarea.val("");
         iex_textarea.val(iex_tmp);
         
-        //Shift+エンターで更新
         if (is_iex_target) {
+            //Shift+エンターで更新
             iex_textarea.keydown(function(e){
-                if(event.shiftKey){
-                    if(e.keyCode === 13){
+                if(event.shiftKey) {
+                    if(e.keyCode === 13) {
                         iex_target.val(iex_textarea.val());
                         iexClear();
                         iex_target.focus();

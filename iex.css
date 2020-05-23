@@ -1,14 +1,30 @@
 #iex-content {
     position: fixed;
     top: 5%;
-    left: 30%;
-    width: 500px;
+    left: 20%;
+    width: 700px;
     background-color: #f4d2ff;
     padding: 15px;
     border: 1px;
     border-color: gray;
     border-radius: 1%;
     z-index: 100001;
+}
+
+#iex-body {
+    display: flex;
+}
+
+#iex-text {
+    width: 80%;
+}
+
+#iex-snippets {
+    display: flex;
+}
+
+#iex-snippets-label {
+    
 }
 
 #iex-modal {
@@ -18,10 +34,12 @@
 #iex-title {
     font-size: 18px;
     color: #454545;
+    margin-bottom: 10px;
 }
 
 #iex-snippets {
-    display: flex;
+    flex-direction: column;
+    width: 20%;
 }
 
 .iex-snippet {
@@ -43,6 +61,7 @@
 #iex-textarea {
     box-sizing: border-box;
     width: 100%;
+    overflow: scroll;
 }
 
 #iex-command-label {
