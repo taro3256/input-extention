@@ -44,7 +44,7 @@ chrome.extension.onRequest.addListener((request, sender, sendResponse) => {
         let iex_modal = "";
         iex_modal += "<div id='iex-content'>";
         iex_modal += "<modal id='iex-modal'>";
-        iex_modal += "<h1 id='iex-title'>Input EX</h1>";
+        iex_modal += "<div id='iex-title'>Input EX</div>";
         iex_modal += "<label id='iex-snippets-label'>Snippets:</label>";
         iex_modal += "<div id='iex-snippets'>";
         iex_modal += "<button class='iex-snippet' value='Hello, Snippet!!'>Hello, Snippet!!</button>";

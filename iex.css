@@ -8,7 +8,7 @@
     border: 1px;
     border-color: gray;
     border-radius: 1%;
-    z-index: 10;
+    z-index: 100001;
 }
 
 #iex-modal {
@@ -16,6 +16,7 @@
 }
 
 #iex-title {
+    font-size: 18px;
     color: #454545;
 }
 
@@ -52,7 +53,7 @@
 }
 
 #iex-overlay{
-	z-index: 9;
+	z-index: 100000;
 	position: fixed;
 	top: 0;
 	left: 0;
