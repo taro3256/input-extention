@@ -23,7 +23,7 @@ $(document).on("click", (event) => {
             iex_target = $(event.target);
         } else {
             iex_target = null;
-    }
+        }
     }
 });
 
